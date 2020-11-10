@@ -6,13 +6,24 @@
 <html>
 <head>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			var commentCount = 1;
+			$("button").click(function(){
+				commentCount = commentCount + 1;
+				$("#comments").load("load-comments.php", {
+					commentNewCount: commentCount
+				});
+			});
+		})
+	</script>
 </head>
 <body>
 	<div id="comments">
 		<?php
-			$sql = "SELECT * FROM comments LIMIT 2";
+			$sql = "SELECT * FROM comments LIMIT 1";
 			$result = mysqli_query($conn, $sql);
 
 			//check if there are results from database

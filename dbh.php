@@ -2,7 +2,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "secret";
+$password = "password";
 $dbname = "ajax_comments";
 
 // connect to the database
